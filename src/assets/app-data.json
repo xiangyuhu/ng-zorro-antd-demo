@@ -1,0 +1,34 @@
+[
+  {
+    "text": "知识库管理",
+    "link": "/knowledge",
+    "icon": "anticon anticon-book",
+    "children": [
+      {
+        "text": "分类管理",
+        "link": "/knowledge/classification"
+      },
+      {
+        "text": "文章博客管理",
+        "link": "/article/list"
+      },
+      {
+        "text": "资源管理",
+        "link": "/knowledge/article/manager"
+      }
+    ]
+
+  },
+  {
+    "text": "用户信息管理",
+    "link": "/user",
+    "icon": "anticon anticon-user",
+    "children": [
+      {
+        "text": "用户信息查询",
+        "link": "/user/list"
+      }
+    ]
+  }
+]
+

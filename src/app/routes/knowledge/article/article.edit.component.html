@@ -1,0 +1,110 @@
+
+<nz-card style="margin-top: 10px">
+  <ng-template #body>
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="articleUpdate()">
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="2" [nzXs]="24">
+          <label for="name" nz-form-item-required>文章标题</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" nzHasFeedback>
+          <nz-input [nzSize]="'large'" formControlName="title" [nzType]="'title'" [nzId]="'title'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('title').dirty&&getFormControl('title').hasError('required')">请输入文章标题</div>
+        </div>
+      </div>
+
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="2" [nzXs]="24">
+          <label for="content" nz-form-item-required>文章内容</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="18" [nzXs]="48" nzHasFeedback>
+          <ckeditor formControlName="content" debounce="500"  [config]="config">
+          </ckeditor>
+          <div nz-form-explain *ngIf="getFormControl('content').dirty&&getFormControl('content').hasError('required')">请输入内容</div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="2" [nzXs]="24">
+          <label for="author" nz-form-item-required>作者</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" nzHasFeedback>
+          <nz-input [nzSize]="'large'" formControlName="author" [nzType]="'author'" [nzId]="'author'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('author').dirty&&getFormControl('author').hasError('required')">请输入作者</div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="2" [nzXs]="24">
+          <label for="original" nz-form-item-required>是否原创</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" nzHasFeedback>
+          <nz-select  formControlName="original" [nzPlaceHolder]="'是否原创'" nzAllowClear>
+            <nz-option
+              [nzLabel]="'原创'"
+              [nzValue]="'0'">
+            </nz-option>
+            <nz-option
+              [nzLabel]="'转载'"
+              [nzValue]="'1'">
+            </nz-option>
+          </nz-select>
+          <div nz-form-explain *ngIf="getFormControl('original').dirty&&getFormControl('original').hasError('required')">请选择分类编号</div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="2" [nzXs]="24">
+          <label for="classificationNo" nz-form-item-required>分类编号</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" nzHasFeedback>
+          <nz-select  formControlName="classificationNo" [nzPlaceHolder]="'选择分类'" nzAllowClear>
+            <nz-option
+              *ngFor="let option of classifications"
+              [nzLabel]="option.name"
+              [nzValue]="option.no">
+            </nz-option>
+          </nz-select>
+          <div nz-form-explain *ngIf="getFormControl('classificationNo').dirty&&getFormControl('classificationNo').hasError('required')">请选择分类编号</div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="2" [nzXs]="24">
+          <label for="sign" nz-form-item-required>文章标签</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" nzHasFeedback>
+          <nz-tag [nzClosable]="true" *ngFor="let tag of tags; let i = index;"
+                  (nzClose)="handleClose(tag)">
+            {{sliceTagName(tag)}}
+          </nz-tag>
+
+          <button *ngIf="!inputVisible" nz-button [nzSize]="'small'" [nzType]="'dashed'"
+                  (click)="showInput()">+ 添加标签</button>
+          <input nz-input #input
+                 *ngIf="inputVisible" type="text"
+                 formControlName="sign"
+                 style="width: 78px;"
+                 (blur)="handleInputConfirm()" (keydown.enter)="handleInputConfirm()">
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="2" [nzXs]="24">
+          <label for="icon" nz-form-item-required>文章缩略图</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="18" [nzXs]="24" nzHasFeedback>
+          <nz-input [nzSize]="'large'" formControlName="icon" [nzType]="'icon'" [nzId]="'icon'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('icon').dirty&&getFormControl('icon').hasError('required')">请输入分类图标</div>
+        </div>
+      </div>
+
+
+      <div nz-form-item nz-row style="margin-bottom:8px;">
+        <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
+          <button nz-button [nzSize]="'large'" [nzType]="'primary'">提交</button>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+</nz-card>

@@ -1,0 +1,59 @@
+<nz-layout>
+  <nz-sider>
+    <div class="logo">
+      <a href="#/">
+        <img src="./assets/logo.svg" alt="logo">
+        <h1>知识库</h1>
+      </a>
+    </div>
+    <ul nz-menu [nzMode]="'inline'" nzTheme='dark'>
+      <li nz-menu-item routerLinkActive="ant-menu-item-selected" (click)="toDesboard()">
+          <span title>
+            <i class="anticon anticon-mail"></i>
+            <a>工作台</a>
+          </span>
+      </li>
+      <li nz-submenu *ngFor="let menu of menuList" >
+        <span title>
+          <i class="{{menu.icon}}"></i>
+          <span>{{menu.text}}</span>
+        </span>
+        <ul>
+          <li nz-menu-item *ngFor="let subMenu of menu.children" (click)="menuClick(menu,subMenu)" routerLinkActive="ant-menu-item-selected">
+            <a routerLink="{{subMenu.link}}">{{subMenu.text}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="right">
+        <nz-dropdown>
+          <span nz-dropdown>
+            <nz-avatar [nzSize]="'small'" [nzSrc]="'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'"></nz-avatar>
+            <span>admin</span>
+          </span>
+          <div nz-menu class="width-sm">
+            <div nz-menu-item [nzDisable]="true"><i class="anticon anticon-user mr-sm"></i>个人中心</div>
+            <div nz-menu-item [nzDisable]="true"><i class="anticon anticon-setting mr-sm"></i>设置</div>
+            <li nz-menu-divider></li>
+            <div nz-menu-item (click)="logout()"><i class="anticon anticon-setting mr-sm"></i>退出登录</div>
+          </div>
+        </nz-dropdown>
+      </div>
+    </nz-header>
+    <nz-content>
+      <nz-card>
+        <ng-template #body>
+         {{title}} / {{subTitle}}
+        </ng-template>
+      </nz-card>
+      <div class="main_content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer></nz-footer>
+
+  </nz-layout>
+</nz-layout>

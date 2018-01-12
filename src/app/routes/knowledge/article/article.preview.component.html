@@ -1,0 +1,13 @@
+<nz-card style="margin-top: 10px">
+  <ng-template #title>
+     {{article.title}}
+  </ng-template>
+  <ng-template #extra>
+    <a>作者：{{article.author}} {{article.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</a>
+  </ng-template>
+  <ng-template #body>
+    <div  [innerHTML]="article.content">
+
+    </div>
+  </ng-template>
+</nz-card>

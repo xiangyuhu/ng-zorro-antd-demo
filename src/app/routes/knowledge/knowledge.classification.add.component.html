@@ -1,0 +1,42 @@
+<nz-card>
+  <ng-template #body>
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label for="name" nz-form-item-required>分类名称</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+          <nz-input [nzSize]="'large'" formControlName="name" [nzType]="'name'" [nzId]="'name'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('name').dirty&&getFormControl('name').hasError('required')">请输入分类名称</div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label for="no" nz-form-item-required>分类编号</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+          <nz-input [nzSize]="'large'" formControlName="no" [nzType]="'no'" [nzId]="'no'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('no').dirty&&getFormControl('no').hasError('required')">请输入分类编号</div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label for="icon" nz-form-item-required>图标</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+          <nz-input [nzSize]="'large'" formControlName="icon" [nzType]="'icon'" [nzId]="'icon'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('icon').dirty&&getFormControl('icon').hasError('required')">请输入分类图标</div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row style="margin-bottom:8px;">
+        <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
+          <button nz-button [nzSize]="'large'" [nzType]="'primary'">提交</button>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+</nz-card>
