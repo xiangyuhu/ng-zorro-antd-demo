@@ -34,3 +34,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![后台管理](https://github.com/xiangyuhu/ng-zorro-antd-demo/blob/master/Screenshots/WX20180112-180046%402x.png)
 ![后台管理](https://github.com/xiangyuhu/ng-zorro-antd-demo/blob/master/Screenshots/WX20180112-180113%402x.png)
 
+ 功能尚不全面，若恰好觉得不错，请联系我QQ:395779222(胡翔宇)
+ 
