@@ -28,7 +28,7 @@ Before running the tests make sure you are serving the app via `ng serve`.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 
-项目基于阿里[ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd)，同时后台采用spring cloud 实现。
+项目基于阿里[ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd)，同时后台采用spring cloud [对应后台](https://github.com/xiangyuhu/ng-zorro-antd-demo-server)实现。
 
 ![后台管理](https://github.com/xiangyuhu/ng-zorro-antd-demo/blob/master/Screenshots/WX20180112-180027%402x.png)
 ![后台管理](https://github.com/xiangyuhu/ng-zorro-antd-demo/blob/master/Screenshots/WX20180112-180046%402x.png)
